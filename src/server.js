@@ -11,6 +11,7 @@ const posts = [
 ];
 
 // Middleware
+app.use(cors());
 
 // Routes
 app.get('/test', (request, response) => {
