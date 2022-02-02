@@ -1,5 +1,6 @@
 const getPosts = document.getElementById('get-posts');
 const results = document.getElementById('results');
+const createForm = document.getElementById('create-form');
 const URL = 'http://localhost:3000';
 
 getPosts.addEventListener('click', () => {
@@ -26,3 +27,9 @@ function makeMePosts(arr, destination) {
     .join('');
   destination.innerHTML = resultHTML;
 }
+
+// form
+createForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('createForm submited');
+});
