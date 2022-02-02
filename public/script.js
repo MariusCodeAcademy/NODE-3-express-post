@@ -31,5 +31,27 @@ function makeMePosts(arr, destination) {
 // form
 createForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log('createForm submited');
+
+  const id = createForm.querySelector('input[name="id"]').value;
+  const title = createForm.querySelector('input[name="title"]').value;
+  const text = createForm.querySelector('textarea[name="text"]').value;
+
+  const dataToSend = {
+    id: id,
+    title: title,
+    text: text,
+  };
+
+  fetch(`${URL}/api/posts`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dataToSend),
+  })
+    .then((resp) => resp.json())
+    .then((dataBack) => console.log(dataBack))
+    .catch((err) => console.warn(err));
+
+  console.log('dataToSend ===', dataToSend);
 });
