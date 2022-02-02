@@ -18,5 +18,15 @@ app.get('/test', (request, response) => {
   response.send('<h2> Back end on line </h2>');
 });
 
+// GET /api/posts - returns all posts
+// success api response {message: success, data: []}
+// error {errr: 'error geting posts'}
+app.get('/api/posts', (request, response) => {
+  response.json({
+    message: 'success',
+    data: posts,
+  });
+});
+
 // Server
 app.listen(PORT, console.log(`Server is runnig on port ${PORT}`));
