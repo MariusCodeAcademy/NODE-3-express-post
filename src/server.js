@@ -24,10 +24,17 @@ app.get('/test', (request, response) => {
 // GET /api/posts - returns all posts
 // success api response {message: success, data: []}
 // error {errr: 'error geting posts'}
-app.get('/api/posts', (request, response) => {
+app.get('/api/posts/', (request, response) => {
   response.json({
     message: 'success',
     data: posts,
+  });
+});
+
+app.get('/api/posts/1', (request, response) => {
+  response.json({
+    message: 'success',
+    data: posts[0],
   });
 });
 

@@ -1,0 +1,14 @@
+
+GET http://localhost:3000/api/posts HTTP/1.1
+
+
+###
+
+POST http://localhost:3000/api/posts 
+Content-Type: 'application/json'
+
+{
+	"id": 15,
+	"title": "post from postman",
+	"text": "text from postman"
+}
