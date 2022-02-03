@@ -12,6 +12,8 @@ const posts = [
 
 // Middleware
 app.use(cors());
+// tam kad galetume request.body gauti json duomenis
+app.use(express.json());
 
 // Routes
 app.get('/test', (request, response) => {
@@ -27,6 +29,16 @@ app.get('/api/posts', (request, response) => {
     message: 'success',
     data: posts,
   });
+});
+
+// POST /api/posts - create new post
+app.post('/api/posts', (request, response) => {
+  // duomenys kurie atsiusti su fetch body dalyje yra request.body
+  const body = request.body;
+  // console.log('request.body ===', body);
+  posts.push(body);
+  console.log('posts after push ===', posts);
+  response.json('post added to posts!!!!222');
 });
 
 // Server

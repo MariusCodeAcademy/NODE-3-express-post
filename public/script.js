@@ -49,7 +49,7 @@ createForm.addEventListener('submit', (event) => {
     },
     body: JSON.stringify(dataToSend),
   })
-    .then((resp) => resp.json())
+    .then((resp) => resp.text())
     .then((dataBack) => console.log(dataBack))
     .catch((err) => console.warn(err));
 
